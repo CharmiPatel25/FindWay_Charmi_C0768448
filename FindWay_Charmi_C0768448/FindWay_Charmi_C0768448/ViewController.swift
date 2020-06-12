@@ -79,12 +79,17 @@ class ViewController: UIViewController,CLLocationManagerDelegate{
     }
     
     @IBAction func zoomInBtn(_ sender: UIButton) {
+       
+        
     }
     
     
     @IBAction func travelModeSegment(_ sender: UISegmentedControl) {
     }
     @IBAction func zoomOutBtn(_ sender: UIButton) {
+        let span = MKCoordinateSpan(latitudeDelta: mapView.region.span.latitudeDelta*2, longitudeDelta: mapView.region.span.longitudeDelta*2)
+                   let region = MKCoordinateRegion(center: mapView.region.center, span: span)
+                   mapView.setRegion(region, animated: true)
     }
     
 }
