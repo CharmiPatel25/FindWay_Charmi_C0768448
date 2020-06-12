@@ -37,6 +37,9 @@
                                 <rect key="frame" x="338" y="792" width="56" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="location"/>
+                                <connections>
+                                    <action selector="locationBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9LG-hl-S7K"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kzc-yi-f5y">
                                 <rect key="frame" x="117" y="688" width="205" height="32"/>
@@ -46,6 +49,9 @@
                                     <segment title="Drive"/>
                                     <segment title="Walk"/>
                                 </segments>
+                                <connections>
+                                    <action selector="travelModeSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="Iqd-wI-b0d"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47D-yv-7A2">
                                 <rect key="frame" x="182" y="736" width="30" height="36"/>
@@ -55,6 +61,9 @@
                                 <state key="normal" title="+">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="zoomInBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Isj-eK-JJT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SbL-3g-B01">
                                 <rect key="frame" x="236" y="734" width="28" height="38"/>
@@ -64,6 +73,9 @@
                                 <state key="normal" title="-">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="zoomOutBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AY7-HJ-889"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

@@ -19,7 +19,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate{
     var LocationManager = CLLocationManager()
     var source = CLLocationCoordinate2D()
     var destination = CLLocationCoordinate2D()
-    
+    var travelMode: String = "Drive"
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -73,8 +73,20 @@ class ViewController: UIViewController,CLLocationManagerDelegate{
         // mapView.userLocation = true
         
     }
-
- 
+    
+    
+    @IBAction func locationBtnClick(_ sender: UIButton) {
+    }
+    
+    @IBAction func zoomInBtn(_ sender: UIButton) {
+    }
+    
+    
+    @IBAction func travelModeSegment(_ sender: UISegmentedControl) {
+    }
+    @IBAction func zoomOutBtn(_ sender: UIButton) {
+    }
+    
 }
 extension ViewController: MKMapViewDelegate {
     
