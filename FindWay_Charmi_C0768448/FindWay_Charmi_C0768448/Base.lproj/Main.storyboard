@@ -15,49 +15,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NlS-kQ-JhD">
-                                <rect key="frame" x="0.0" y="44" width="414" height="88"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fZq-pq-imm">
+                                <rect key="frame" x="0.0" y="44" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Find Way" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVJ-is-t7W">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Find Way" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwC-Z9-cdE">
+                                        <rect key="frame" x="136" y="40" width="135" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3S-wp-BiS">
-                                <rect key="frame" x="354" y="761" width="40" height="52"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uHh-BW-1n7">
+                                <rect key="frame" x="0.0" y="138" width="414" height="758"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="location.circle" catalog="system"/>
-                            </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" zoomEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6TV-qg-tC6">
-                                <rect key="frame" x="0.0" y="132" width="414" height="681"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="777" id="nam-Ra-32y"/>
-                                </constraints>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YmJ-SV-tXn">
+                                <rect key="frame" x="338" y="792" width="56" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="location"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="6TV-qg-tC6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pJm-91-nnj"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="locationButton" destination="S3S-wp-BiS" id="On2-Tf-Cdv"/>
-                        <outlet property="mapView" destination="6TV-qg-tC6" id="vdq-SG-CTE"/>
+                        <outlet property="locationButton" destination="YmJ-SV-tXn" id="k75-GV-2eH"/>
+                        <outlet property="mapView" destination="uHh-BW-1n7" id="RqE-4k-QQe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
+            <point key="canvasLocation" x="137.68115942028987" y="97.767857142857139"/>
         </scene>
     </scenes>
     <resources>
-        <image name="location.circle" catalog="system" width="128" height="121"/>
+        <image name="location" width="225" height="225"/>
     </resources>
 </document>
