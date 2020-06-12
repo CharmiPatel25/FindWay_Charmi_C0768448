@@ -60,8 +60,8 @@ class ViewController: UIViewController,CLLocationManagerDelegate{
     
     func setRegion() {
         // define latitude and longitude for lambton college toronto
-        let latitude: CLLocationDegrees = 42.974152
-        let longitude: CLLocationDegrees = -82.347359
+        let latitude: CLLocationDegrees = 37.774929
+        let longitude: CLLocationDegrees = -122.419418
         let latDelta: CLLocationDegrees = 0.5
         let longDelta: CLLocationDegrees = 0.5
         let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
@@ -69,12 +69,34 @@ class ViewController: UIViewController,CLLocationManagerDelegate{
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true)
          mapView.delegate = self
-        // mapView.userLocation = true
-        
+
     }
     
     
     @IBAction func locationBtnClick(_ sender: UIButton) {
+        let overlays = mapView.overlays
+        mapView.removeOverlays(overlays)
+        
+        // draw route
+        let request = MKDirections.Request()
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: source, addressDictionary: nil))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: destination, addressDictionary: nil))
+        request.requestsAlternateRoutes = true
+        if(travelMode == "D"){
+            request.transportType = .automobile
+        }
+        else{
+            
+            request.transportType = .walking
+        }
+        
+        let directions = MKDirections(request: request)
+        directions.calculate { [unowned self] response, error in
+            guard let unwrappedResponse = response else { return }
+            let route = unwrappedResponse.routes[0]
+            self.mapView.addOverlay(route.polyline)
+            self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+            }
     }
     
     @IBAction func zoomInBtn(_ sender: UIButton) {
@@ -86,6 +108,15 @@ class ViewController: UIViewController,CLLocationManagerDelegate{
     
     
     @IBAction func travelModeSegment(_ sender: UISegmentedControl) {
+        let overlays = mapView.overlays
+        mapView.removeOverlays(overlays)
+        
+        if sender.selectedSegmentIndex == 0 {
+            travelMode = "D"
+        }
+        else{
+            travelMode = "W"
+        }
     }
     @IBAction func zoomOutBtn(_ sender: UIButton) {
         let span = MKCoordinateSpan(latitudeDelta: mapView.region.span.latitudeDelta*2, longitudeDelta: mapView.region.span.longitudeDelta*2)
