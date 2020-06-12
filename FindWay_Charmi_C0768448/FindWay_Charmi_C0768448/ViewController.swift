@@ -7,14 +7,32 @@
 //
 
 import UIKit
+import MapKit
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
+class ViewController: UIViewController,CLLocationManagerDelegate{
+       
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var locationButton: UIButton!
+    
+    var LocationManager = CLLocationManager()
+    var source = CLLocationCoordinate2D()
+    var destination = CLLocationCoordinate2D()
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        
+        self.LocationManager.requestAlwaysAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            LocationManager.delegate = self
+            LocationManager.desiredAccuracy = kCLLocationAccuracyBest
+            LocationManager.startUpdatingLocation()
+        }
     }
 
-
+ //42.974152
+    // -82.347359
 }
 
