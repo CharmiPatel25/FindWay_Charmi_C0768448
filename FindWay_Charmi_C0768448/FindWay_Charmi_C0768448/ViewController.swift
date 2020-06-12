@@ -45,7 +45,6 @@ class ViewController: UIViewController,CLLocationManagerDelegate{
     
     
     @objc func tappress(gestureRecognizer: UIGestureRecognizer){
-        
         mapView.removeAnnotations(mapView.annotations)
         let overlays = mapView.overlays
         mapView.removeOverlays(overlays)
@@ -55,8 +54,8 @@ class ViewController: UIViewController,CLLocationManagerDelegate{
         annotation.title = "Destination"
         annotation.coordinate = destination
         mapView.addAnnotation(annotation)
-        
     }
+    
     
     
     func setRegion() {
