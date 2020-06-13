@@ -142,7 +142,15 @@ extension ViewController: MKMapViewDelegate {
             return renderer
         } else if overlay is MKPolyline {
             let renderer = MKPolylineRenderer(overlay: overlay)
-            renderer.strokeColor = UIColor.blue
+            if(travelMode=="D")
+            {
+                renderer.strokeColor = UIColor.purple 
+                
+            }
+            else
+            {
+                renderer.strokeColor = UIColor.green
+            }
             renderer.lineWidth = 3.0
             return renderer
         } else if overlay is MKPolygon {
