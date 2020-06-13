@@ -59,7 +59,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate{
     
     
     func setRegion() {
-        // define latitude and longitude for lambton college toronto
+        // define latitude and longitude for san frasisco
         let latitude: CLLocationDegrees = 37.774929
         let longitude: CLLocationDegrees = -122.419418
         let latDelta: CLLocationDegrees = 0.5
@@ -129,17 +129,15 @@ extension ViewController: MKMapViewDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        
         source = locValue
     }
         
-        
     
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+   func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay is MKCircle {
             let renderer = MKCircleRenderer(overlay: overlay)
             renderer.fillColor = UIColor.black.withAlphaComponent(0.5)
-            renderer.strokeColor = UIColor.green
+            renderer.strokeColor = UIColor.purple
             renderer.lineWidth = 2.0
             return renderer
         } else if overlay is MKPolyline {
@@ -154,18 +152,18 @@ extension ViewController: MKMapViewDelegate {
             renderer.lineWidth = 2.0
             return renderer
         }
-        
         return MKOverlayRenderer()
         
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        let alert = UIAlertController(title: "Welcome to \(title)", message: "You have reached your destination :  \(title)", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Welcome ,", message: "You have reached your destination", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
         
     }
+    
     
 }
 
