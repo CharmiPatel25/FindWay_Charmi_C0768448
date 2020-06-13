@@ -166,8 +166,9 @@ extension ViewController: MKMapViewDelegate {
             }
             else
             {
-                renderer.strokeColor = UIColor.green
-                
+                renderer.strokeColor = UIColor.blue
+                renderer.lineWidth = 8
+                renderer.lineDashPattern = [0,5]
             }
             renderer.lineWidth = 3.0
             return renderer
