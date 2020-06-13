@@ -66,6 +66,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate{
         let longDelta: CLLocationDegrees = 0.5
         let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
         let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true)
          mapView.delegate = self
@@ -84,6 +85,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate{
         request.requestsAlternateRoutes = true
         if(travelMode == "D"){
             request.transportType = .automobile
+           
         }
         else{
             
@@ -91,12 +93,27 @@ class ViewController: UIViewController,CLLocationManagerDelegate{
         }
         
         let directions = MKDirections(request: request)
-        directions.calculate { [unowned self] response, error in
+        directions.calculate
+            {
+            [unowned self] response, error in
             guard let unwrappedResponse = response else { return }
             let route = unwrappedResponse.routes[0]
             self.mapView.addOverlay(route.polyline)
             self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                
+               // let time = String(route.expectedTravelTime/3600)
+               // let time = String(format:"%02d",String(route.expectedTravelTime/3600))
+                let distance = route.distance
+              //  let steps = route.steps
+            
+                
+                let alert = UIAlertController(title: "Lets go", message: "Distnace : \(distance)km.", preferredStyle: .alert)
+                       let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                       alert.addAction(cancelAction)
+                self.present(alert, animated: true, completion: nil)
+                
             }
+        
     }
     
     @IBAction func zoomInBtn(_ sender: UIButton) {
@@ -144,12 +161,13 @@ extension ViewController: MKMapViewDelegate {
             let renderer = MKPolylineRenderer(overlay: overlay)
             if(travelMode=="D")
             {
-                renderer.strokeColor = UIColor.purple 
+                renderer.strokeColor = UIColor.purple
                 
             }
             else
             {
                 renderer.strokeColor = UIColor.green
+                
             }
             renderer.lineWidth = 3.0
             return renderer
@@ -171,7 +189,6 @@ extension ViewController: MKMapViewDelegate {
         present(alert, animated: true, completion: nil)
         
     }
-    
     
 }
 
