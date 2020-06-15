@@ -104,14 +104,14 @@ class ViewController: UIViewController,CLLocationManagerDelegate{
                 
                // let time = String(route.expectedTravelTime/3600)
                // let time = String(format:"%02d",String(route.expectedTravelTime/3600))
-               // let distance = route.distance
+                let distance = route.distance
               //  let steps = route.steps
             
                 
-                //let alert = UIAlertController(title: "Lets go", message: "Distnace : \(distance)km.", preferredStyle: .alert)
-                      //// let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                      // alert.addAction(cancelAction)
-                ///self.present(alert, animated: true, completion: nil)
+                let alert = UIAlertController(title: "Lets go", message: "Distnace : \(distance)km.", preferredStyle: .alert)
+                      let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alert.addAction(cancelAction)
+                self.present(alert, animated: true, completion: nil)
                 
             }
         
